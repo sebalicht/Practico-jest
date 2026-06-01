@@ -20,12 +20,19 @@ describe('advancedCalculator', () => {
   //////////////////////////////////////////////////////////////////////////////////////////
 
   test('squareRoot method calculates the square root correctly', () => {
-
+    expect(calculator.squareRoot(9)).toBe(3);
   });
 
   test('squareRoot method throws an error when a non-numeric argument is provided', () => {
     expect(() => calculator.squareRoot('16')).toThrowError(
       'argument must be a number'
+    );
+  });
+  //////////////////////////////////////////////////////////////////////////////////////////
+
+  test('squareRoot method throws an error when a negative argument is provided', () => {
+    expect(() => calculator.squareRoot(-4)).toThrowError(
+      'square root of negative numbers is not allowed'
     );
   });
 
@@ -41,8 +48,34 @@ describe('advancedCalculator', () => {
       'argument must be a number'
     );
   });
+  //////////////////////////////////////////////////
+  test('isEven method checks if a number is even', () => {
+    expect(calculator.isEven(1)).toBe(false);
+  });
+
 
   //////////////////////////////////////////////////////////////////////////////////////////
+  test('isPrime method checks if a number is prime', () => {
+    expect(calculator.isPrime(1)).toBe(false);
+  });
+
+  test('isPrime method checks if a number is prime', () => {
+    expect(calculator.isPrime(7)).toBe(true);
+    expect(calculator.isPrime(2)).toBe(true);
+  });
+
+  test('isPrime method checks if a number is not prime', () => {
+    expect(calculator.isPrime(8)).toBe(false);
+
+  });
+
+  test('isPrime method throws an error when a non-numeric argument is provided', () => {
+    expect(() => calculator.isPrime('4')).toThrowError(
+      'argument must be a number'
+    );
+  });
+
+
 
 
 });
